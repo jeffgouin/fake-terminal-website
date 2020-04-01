@@ -12,40 +12,39 @@ var configs = (function () {
         }
     };
     Singleton.defaultOptions = {
-        general_help: "Below there's a list of commands that you can use.\nYou can use autofill by pressing the TAB key, autocompleting if there's only 1 possibility, or showing you a list of possibilities.",
-        ls_help: "List information about the files and folders (the current directory by default).",
-        cat_help: "Read FILE(s) content and print it to the standard output (screen).",
-        whoami_help: "Print the user name associated with the current effective user ID and more info.",
-        date_help: "Print the system date and time.",
-        help_help: "Print this menu.",
-        clear_help: "Clear the terminal screen.",
-        reboot_help: "Reboot the system.",
-        cd_help: "Change the current working directory.",
-        mv_help: "Move (rename) files.",
-        rm_help: "Remove files or directories.",
-        rmdir_help: "Remove directory, this command will only work if the folders are empty.",
-        touch_help: "Change file timestamps. If the file doesn't exist, it's created an empty one.",
-        sudo_help: "Execute a command as the superuser.",
-        welcome: "Welcome to FTW (Fake Terminal Website)! :)\nIn order for you to start customizing the texts, go to js/main.js and replace the texts located at the configs var.\nIn that same file, you can define all the fake files you want as well as their content. This files will appear on the sidenav.\nAlso, don't forget to change the colors on the css/main.css file as well as the website title on the index.html file.\nNow in order to get started, feel free to either execute the 'help' command or use the more user-friendly colored sidenav at your left.\nIn order to skip text rolling, double click/touch anywhere.",
-        internet_explorer_warning: "NOTE: I see you're using internet explorer, this website won't work properly.",
+        general_help: "Voici la liste des commandes utilisable.\nVous pouvez utilisez la touche TAB pour la saisie-automatique d'une commande s'il n'y a qu'une possibilité.",
+        dir_help: "Afficher la liste des fichiers et sous-répertoires d'un répertoire.",
+        cat_help: "Afficher le contenu d’un fichier texte.",
+        whoami_help: "Afficher le nom du domaine suivi du caractère antislash et du nom de l'utilisateur.",
+        date_help: "Afficher l'heure et la date système.",
+        help_help: "Afficher ce menu.",
+        clear_help: "Effacer le contenu de cette fenêtre terminal.",
+        reboot_help: "Redémmarer le système.",
+        cd_help: "Changer le répertoire de travail actuel.",
+        mv_help: "Déplacer des fichiers ou répertoires.",
+        rm_help: "Effacer des fichiers ou répertoires.",
+        execute_help: "Exécuter un programme.",
+        welcome: "Curriculum Vitae Jean-Francois Gouin v.1.3.1 (MS-DOS Édition) \n\nPour obtenir plus d'informations sur une commande spécifique, veuillez taper la commande 'HELP'.\nPour une navigation simplifiée,vous pouvez toujours utiliser le menu de gauche.",
+        internet_explorer_warning: "NOTE: Je vois que tu utilises internet explorer, télécharge Google Chrome.",
         welcome_file_name: "welcome_message.txt",
-        invalid_command_message: "<value>: command not found.",
-        reboot_message: "Preparing to reboot...\n\n3...\n\n2...\n\n1...\n\nRebooting...\n\n",
-        permission_denied_message: "Unable to '<value>', permission denied.",
-        sudo_message: "Unable to sudo using a web client.",
+        invalid_command_message: "<value>: commande invalide.",
+        reboot_message: "Préparation du redémmarage...\n\n3...\n\n2...\n\n1...\n\nRebooting...\n\n",
+        permission_denied_message: "Impossible d'utiliser '<value>', permission refusée.",
+        sudo_message: "Impossible d'utiliser en tant que web client.",
         usage: "Usage",
         file: "file",
-        file_not_found: "File '<value>' not found.",
+        file_not_found: "Fichier '<value>' introuvable.",
+        not_exec: "Impossible d'exécuter '<value>'.",
         username: "Username",
         hostname: "Host",
         platform: "Platform",
-        accesible_cores: "Accessible cores",
+        accesible_cores: "Cores accessibles",
         language: "Language",
         value_token: "<value>",
-        host: "example.com",
-        user: "guest",
+        host: "User\\JeffGouin>",
+        user: "C:\\",
         is_root: false,
-        type_delay: 20
+        type_delay: 2
     };
     return {
         getInstance: function (options) {
@@ -55,9 +54,6 @@ var configs = (function () {
     };
 })();
 
-/**
- * Your files here
- */
 var files = (function () {
     var instance;
     var Singleton = function (options) {
@@ -67,11 +63,34 @@ var files = (function () {
         }
     };
     Singleton.defaultOptions = {
-        "about.txt": "This website was made using only pure JavaScript with no extra libraries.\nI made it dynamic so anyone can use it, just download it from GitHub and change the config text according to your needs.\nIf you manage to find any bugs or security issues feel free to email me: luisbraganca@protonmail.com",
-        "getting_started.txt": "First, go to js/main.js and replace all the text on both singleton vars.\n- configs: All the text used on the website.\n- files: All the fake files used on the website. These files are also used to be listed on the sidenav.\nAlso please notice if a file content is a raw URL, when clicked/concatenated it will be opened on a new tab.\nDon't forget also to:\n- Change the page title on the index.html file\n- Change the website color on the css/main.css\n- Change the images located at the img folder. The suggested sizes are 150x150 for the avatar and 32x32/16x16 for the favicon.",
-        "contact.txt": "mail@example.com",
-        "social_network_1.txt": "https://www.socialite.com/username/",
-        "social_network_2.txt": "https://example.com/profile/9382/"
+        "a_propos.txt": "Jean-François Gouin (info@jeffgouin.ca)" +
+                        "\n\nCe site web a été créé dans l'obectif de présenter un curriculum vitae intéractif, un peu 'geek' et amusant. :)" +
+                        "\n\nJe possède plus de 15 ans d’expérience en programmation informatique, analyse de dossier, administration de base  de données et architecture logicielle." +
+                        "\nEn plus de mon expertise en programmation, je possède d’excellentes aptitudes organisationnelles, ainsi qu’un très bon sens du leadership et de gestion des priorités." +
+                        "\nJe possède une grande facilité d’apprentissage et d’intégration, je suis apte à produire des livrables dans les délais les plus intéressants.",
+        "resume_profesionnel.txt": "NO.\t|\tCLIENT\t|\tPROJET\t|\tFonction\t|\tAnnée\t|\tEfforts (mois)\n\n"+
+                                   "13\t|\tC.R.A.A.Q.\t|\tDéveloppement logiciel\t|\tProgrammeur Analyste & Scrum Master\t|\t2018-...\t|\t18\n" +
+                                   "12\t|\tCeratec\t|\tDéveloppement logiciel\t|\tProgrammeur Analyste\t|\t2015-2018\t|\t36\n" +
+                                   "11\t|\tDesjardins Groupe d’assurances générales\t|\tInfrastructure applicative\t|\tProgrammeur Analyste\t|\t2015-2015\t|\t5\n" +
+                                   "10\t|\tRégie de l’assurance maladie du Québec\t|\tSYRA (Rémunération à l’acte)\t|\tProgrammeur Analyste\t|\t2013-2014\t|\t11\n" +
+                                   "09\t|\tMinistère du Revenu du Québec\t|\tTT/TC (Échanges électroniques)\t|\tProgrammeur Analyste\t|\t2012-2012\t|\t4\n" +
+                                   "08\t|\tMinistère du Revenu du Québec\t|\tT1/G1B (Inscriptions électroniques)\t|\tProgrammeur Analyste\t|\t2011-2012\t|\t12\n" +
+                                   "07\t|\tRégie de l’assurance maladie du Québec\t|\tFichier d’inscription des professionnels\t|\tProgrammeur Analyste\t|\t2010-2011\t|\t4\n" +
+                                   "06\t|\tRégie de l’assurance maladie du Québec\t|\tRèglement des forfaits\t|\tProgrammeur Analyste\t|\t2010-2010\t|\t7\n" +
+                                   "05\t|\tRégie de l’assurance maladie du Québec\t|\tProjet inscription générale\t|\tProgrammeur Analyste\t|\t2009-2010\t|\t9\n" +
+                                   "04\t|\tCOGEP\t|\tGuide TI - Gestion des actifs stratégiques\t|\tProgrammeur Analyste\t|\t2007-2009\t|\t32\n" +
+                                   "03\t|\tMatiss\t|\tMatissoft\t|\tProgrammeur Analyste\t|\t2005-2007\t|\t36\n" +
+                                   "02\t|\tDator\t|\tSofticket (SiS)\t|\tProgrammeur Analyste\t|\t2003-2005\t|\t24\n" +
+                                   "01\t|\tSolution Form@Dev\t|\tDéveloppement logiciel\t|\tProgrammeur Analyste\t|\t2002-2003\t|\t7\n" +
+                                   "\n *** Voir curriculum vitae complet ***",
+        "curriculum_vitae_complet.docx" : "https://drive.google.com/file/d/1JZCx7UFAHR6_zFXdW_9eM2b1K3cGIu9-/view?usp=sharing",
+        "contact.txt": "Courriel : info@jeffgouin.ca\nTéléphone : (418)559-4642",
+        "linked_in.html": "https://www.linkedin.com/in/jean-fran%C3%A7ois-gouin-b816b431/",
+        "hack.exe": "��������������������G������v�������������������☻☻\n" +
+                    "������|����M����r���f��$|����M����6r���f☻☻��$|����M����r���f��$|����M����r���f��$\n" +
+                    "��������������☻☻�������9�����v�������������������\n" +
+                    "������|����M����r���f��$|����M����r��2�f��$|����M����r���f��$|☻☻����M����r���f��$"
+
     };
     return {
         getInstance: function (options) {
@@ -92,15 +111,15 @@ var main = (function () {
         event.preventDefault();
         event.stopPropagation();
     };
-    
+
     var scrollToBottom = function () {
         window.scrollTo(0, document.body.scrollHeight);
     };
-    
+
     var isURL = function (str) {
         return (str.startsWith("http") || str.startsWith("www")) && str.indexOf(" ") === -1 && str.indexOf("\n") === -1;
     };
-    
+
     /**
      * Model
      */
@@ -119,7 +138,7 @@ var main = (function () {
     InvalidArgumentException.prototype.constructor = InvalidArgumentException;
 
     var cmds = {
-        LS: { value: "ls", help: configs.getInstance().ls_help },
+        DIR: { value: "dir", help: configs.getInstance().dir_help },
         CAT: { value: "cat", help: configs.getInstance().cat_help },
         WHOAMI: { value: "whoami", help: configs.getInstance().whoami_help },
         DATE: { value: "date", help: configs.getInstance().date_help },
@@ -129,9 +148,7 @@ var main = (function () {
         CD: { value: "cd", help: configs.getInstance().cd_help },
         MV: { value: "mv", help: configs.getInstance().mv_help },
         RM: { value: "rm", help: configs.getInstance().rm_help },
-        RMDIR: { value: "rmdir", help: configs.getInstance().rmdir_help },
-        TOUCH: { value: "touch", help: configs.getInstance().touch_help },
-        SUDO: { value: "sudo", help: configs.getInstance().sudo_help }
+        EXECUTE: { value: "execute", help: configs.getInstance().execute_help }
     };
 
     var Terminal = function (prompt, cmdLine, output, sidenav, profilePic, user, host, root, outputTimer) {
@@ -150,7 +167,7 @@ var main = (function () {
         if (!(profilePic instanceof Node) || profilePic.nodeName.toUpperCase() !== "IMG") {
             throw new InvalidArgumentException("Invalid value " + profilePic + " for argument 'profilePic'.");
         }
-        (typeof user === "string" && typeof host === "string") && (this.completePrompt = user + "@" + host + ":~" + (root ? "#" : "$"));
+        (typeof user === "string" && typeof host === "string") && (this.completePrompt = user + host);
         this.profilePic = profilePic;
         this.prompt = prompt;
         this.cmdLine = cmdLine;
@@ -215,16 +232,19 @@ var main = (function () {
             }
         })();
         for (var file in files.getInstance()) {
-            var element = document.createElement("button");
-            Terminal.makeElementDisappear(element);
-            element.onclick = function (file, event) {
-                this.handleSidenav(event);
-                this.cmdLine.value = "cat " + file + " ";
-                this.handleCmd();
-            }.bind(this, file);
-            element.appendChild(document.createTextNode(capFirst(file.replace(/\.[^/.]+$/, "").replace(/_/g, " "))));
-            this.sidenav.appendChild(element);
-            this.sidenavElements.push(element);
+            if(file != "hack.exe")
+            {
+              var element = document.createElement("button");
+              Terminal.makeElementDisappear(element);
+              element.onclick = function (file, event) {
+                  this.handleSidenav(event);
+                  this.cmdLine.value = "cat " + file + " ";
+                  this.handleCmd();
+              }.bind(this, file);
+              element.appendChild(document.createTextNode(capFirst(file.replace(/\.[^/.]+$/, "").replace(/_/g, " "))));
+              this.sidenav.appendChild(element);
+              this.sidenavElements.push(element);
+            }
         }
         // Shouldn't use document.getElementById but Terminal is already using loads of params
         document.getElementById("sidenavBtn").addEventListener("click", this.handleSidenav.bind(this));
@@ -284,7 +304,25 @@ var main = (function () {
                         possibilities.push(cmds.CAT.value + " " + file);
                     }
                 }
-            } else {
+            }
+            else if((cmdComponents.length <= 1) || (cmdComponents.length === 2 && cmdComponents[0] === cmds.EXECUTE.value)){
+              this.lock();
+              var possibilities = [];
+              if (cmdComponents[0].toLowerCase() === cmds.EXECUTE.value) {
+                  if (cmdComponents.length === 1) {
+                      cmdComponents[1] = "";
+                  }
+                  if (configs.getInstance().welcome_file_name.startsWith(cmdComponents[1].toLowerCase())) {
+                      possibilities.push(cmds.EXECUTE.value + " " + configs.getInstance().welcome_file_name);
+                  }
+                  for (var file in files.getInstance()) {
+                      if (file.startsWith(cmdComponents[1].toLowerCase())) {
+                          possibilities.push(cmds.EXECUTE.value + " " + file);
+                      }
+                  }
+              }
+            }
+            else {
                 for (var command in cmds) {
                     if (cmds[command].value.startsWith(cmdComponents[0].toLowerCase())) {
                         possibilities.push(cmds[command].value);
@@ -308,13 +346,21 @@ var main = (function () {
 
     Terminal.prototype.handleCmd = function () {
         var cmdComponents = this.cmdLine.value.trim().split(" ");
+
+        for(var i = 0; i < cmdComponents.length; i++) {
+            cmdComponents[i] = cmdComponents[i].toLowerCase();
+        }
+
         this.lock();
         switch (cmdComponents[0]) {
             case cmds.CAT.value:
                 this.cat(cmdComponents);
                 break;
-            case cmds.LS.value:
-                this.ls();
+            case cmds.EXECUTE.value:
+                this.execute(cmdComponents);
+                break;
+            case cmds.DIR.value:
+                this.dir();
                 break;
             case cmds.WHOAMI.value:
                 this.whoami();
@@ -333,18 +379,25 @@ var main = (function () {
                 break;
             case cmds.CD.value:
             case cmds.MV.value:
-            case cmds.RMDIR.value:
             case cmds.RM.value:
-            case cmds.TOUCH.value:
                 this.permissionDenied(cmdComponents);
-                break;
-            case cmds.SUDO.value:
-                this.sudo();
                 break;
             default:
                 this.invalidCommand(cmdComponents);
                 break;
         };
+    };
+
+    Terminal.prototype.execute = function (cmdComponents) {
+        var result;
+        if (cmdComponents.length <= 1) {
+            result = configs.getInstance().usage + ": " + cmds.EXECUTE.value + " <" + configs.getInstance().file + ">";
+        } else if (!cmdComponents[1] || (cmdComponents[1] != "hack.exe")) {
+            result = configs.getInstance().not_exec.replace(configs.getInstance().value_token, cmdComponents[1]);
+        } else {
+            window.location.replace("hack.html");
+        }
+        this.type(result, this.unlock.bind(this));
     };
 
     Terminal.prototype.cat = function (cmdComponents) {
@@ -359,8 +412,8 @@ var main = (function () {
         this.type(result, this.unlock.bind(this));
     };
 
-    Terminal.prototype.ls = function () {
-        var result = ".\n..\n" + configs.getInstance().welcome_file_name + "\n";
+    Terminal.prototype.dir = function () {
+        var result = "Le volume dans le lecteur C n’a pas de nom.\nLe numéro de série du volume est G692-8EBD\n\nRépertoire de C:\\Users\\JeffGouin\n\n";
         for (var file in files.getInstance()) {
             result += file + "\n";
         }
@@ -372,7 +425,7 @@ var main = (function () {
     }
 
     Terminal.prototype.whoami = function (cmdComponents) {
-        var result = configs.getInstance().username + ": " + configs.getInstance().user + "\n" + configs.getInstance().hostname + ": " + configs.getInstance().host + "\n" + configs.getInstance().platform + ": " + navigator.platform + "\n" + configs.getInstance().accesible_cores + ": " + navigator.hardwareConcurrency + "\n" + configs.getInstance().language + ": " + navigator.language;
+        var result = "Jean-François Gouin\n38 ans\n\nProgrammeur/Analyste\ninfo@jeffgouin.ca";
         this.type(result, this.unlock.bind(this));
     };
 
