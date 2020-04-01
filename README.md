@@ -71,6 +71,14 @@ https://blog.github.com/2008-12-19-github-ribbons/
 
 I strongly ask you a favor: **PLEASE** use an obfuscator tool for the JS file, that way people won't be able to copy your website's version JS and the only way that they can use the template is by visiting this repository. [This obfuscator](https://www.daftlogic.com/projects-online-javascript-obfuscator.htm), provided by DaftLogic, looks really great and is the one used for my personal one.
 
+## Fork Note
+Adapted to create an interactive curriculum vitae (FRENCH).
+Currently online at :
+http://www.jeffgouin.ca
+
+Thanks a lot Luìs !
+
 ## Authors
 
 * **Luís Bragança** - *Mostly everything*
+* **Jean-François Gouin** - *Curriculum vitae conversion, with an easteregg* 
